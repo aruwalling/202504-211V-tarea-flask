@@ -1,0 +1,36 @@
+
+
+@baseUrl =  http://127.0.0.1:5000/api/v1
+
+### Obtener todos los usuarios
+GET {{baseUrl}}/user
+
+### Obtener usuario especifico
+GET {{baseUrl}}/user/1
+
+### Crear usuario
+# @name createUser
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+    "email":"test2@test.com",
+    "password":"test2",
+    "username":"test2"
+}
+
+### Actualizar
+PUT {{baseUrl}}/user/{{createUser.response.body.id}}
+Content-Type: application/json
+
+{
+    "email":"test_@test.com",
+    "password":"test_",
+    "username":"test_"
+}
+
+### Obtener usuario especifico
+GET {{baseUrl}}/user/{{createUser.response.body.id}}
+
+### Eliminar un usario especifico
+DELETE {{baseUrl}}/user/{{createUser.response.body.id}}
